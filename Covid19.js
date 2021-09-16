@@ -17,9 +17,7 @@ let countries_list
 let all_time_chart, days_chart, recover_rate_chart
 
 window.onload = async () => {
-    console.log('ready...')
-
-    // only init chart on page loaded first time
+    console.log('ready')
 
     initTheme()
 
@@ -82,8 +80,6 @@ showDeathsTotal = (total) => {
 
 loadSummary = async (country) => {
 
-    // country = Slug
-
     let summaryData = await covidApi.getSummary()
 
     let summary = summaryData.Global
@@ -96,12 +92,7 @@ loadSummary = async (country) => {
     showRecoveredTotal(summary.TotalRecovered)
     showDeathsTotal(summary.TotalDeaths)
 
-    // load recovery rate
-
     await loadRecoveryRate(Math.floor(summary.TotalRecovered / summary.TotalConfirmed * 100))
-
-    // load countries table
-
     let casesByCountries = summaryData.Countries.sort((a, b) => b.TotalConfirmed - a.TotalConfirmed)
 
     let table_countries_body = document.querySelector('#table-countries tbody')
@@ -391,7 +382,7 @@ loadCountrySelectList = async () => {
 initContryFilter = () => {
     let input = document.querySelector('#country-select-list input')
     input.onkeyup = () => {
-        let filtered = countries_list.filter(e => e.Country.toLowerCase().includes(input.value))
+        let filtered = countries_list.filter(e => e.Country.toLowerCase().includes(input.value.toLowerCase()))
         renderCountrySelectList(filtered)
     }
 }
