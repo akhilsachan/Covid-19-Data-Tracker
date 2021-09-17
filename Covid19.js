@@ -17,8 +17,7 @@ let countries_list
 let all_time_chart, days_chart, recover_rate_chart
 
 window.onload = async () => {
-    console.log('ready')
-
+    console.log('ready...')
     initTheme()
 
     initContryFilter()
@@ -80,6 +79,8 @@ showDeathsTotal = (total) => {
 
 loadSummary = async (country) => {
 
+    // country = Slug
+
     let summaryData = await covidApi.getSummary()
 
     let summary = summaryData.Global
@@ -92,7 +93,12 @@ loadSummary = async (country) => {
     showRecoveredTotal(summary.TotalRecovered)
     showDeathsTotal(summary.TotalDeaths)
 
+    // load recovery rate
+
     await loadRecoveryRate(Math.floor(summary.TotalRecovered / summary.TotalConfirmed * 100))
+
+    // load countries table
+
     let casesByCountries = summaryData.Countries.sort((a, b) => b.TotalConfirmed - a.TotalConfirmed)
 
     let table_countries_body = document.querySelector('#table-countries tbody')
@@ -339,7 +345,6 @@ setDarkChart = (dark) => {
     recover_rate_chart.updateOptions(theme)
 }
 
-// country select
 renderCountrySelectList = (list) => {
     let country_select_list = document.querySelector('#country-select-list')
     country_select_list.querySelectorAll('div').forEach(e => e.remove())
@@ -378,7 +383,6 @@ loadCountrySelectList = async () => {
     renderCountrySelectList(countries_list)
 }
 
-// country filter
 initContryFilter = () => {
     let input = document.querySelector('#country-select-list input')
     input.onkeyup = () => {
@@ -386,3 +390,19 @@ initContryFilter = () => {
         renderCountrySelectList(filtered)
     }
 }
+
+
+// Loader
+
+var doc = document.getElementById("loades");
+var color = ["#39ff14","#1F51FF", "#ffc710"];
+var i = 0;
+function change() {
+  doc.style.color = color[i];
+  i++;
+  
+  if(i > color.length - 1) {
+    i = 0;
+  }
+}
+setInterval(change, 1);
