@@ -8,21 +8,17 @@
     <title>
         Covid-19 Data Tracker
     </title>
-    <!-- <link rel="shortcut icon" href="./static/images/favicon.png" type="image/png"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/3a6c5aa7b1.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <!-- CSS -->
     <link rel="stylesheet" href="grid.css">
     <link rel="stylesheet" href="Covid19.css">
 </head>
 
 <body class="loading">
 
-    <!-- top nav -->
     <div class="nav-wrapper">
         <div class="container">
             <div class="nav">
@@ -36,12 +32,8 @@
             </div>
         </div>
     </div>
-    <!-- end top nav -->
-
-    <!-- main content -->
     <div class="content">
         <div class="container">
-            <!-- country select -->
             <div class="row">
                 <div class="col-3 col-md-6 col-sm-12">
                     <div class="global">
@@ -57,14 +49,9 @@
                     </div>
                 </div>
             </div>
-            <!-- end country select -->
-
-            <!-- tracking information -->
             <div class="row">
-                <!-- left content -->
                 <div class="col-12 col-md-12 col-sm-12">
                     <div class="row">
-                        <!-- counter -->
                         <div class="col-cases col-md-4 col-sm-12">
                             <div class="confirmed box box-hover">
                                 <div class="count count-confirmed">
@@ -78,8 +65,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- counter -->
-                        <!-- counter -->
 
                         <div class="col-cases col-md-4 col-sm-12">
                             <div class="active_cases box box-hover">
@@ -94,8 +79,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- counter -->
-                        <!-- counter -->
 
                         <div class="col-cases col-md-4 col-sm-12">
                             <div class="recovered box box-hover">
@@ -138,11 +121,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- counter -->
-
-                        
-
-                        <!-- all time chart -->
                         <div class="col-8 col-md-12 col-sm-12">
                             <div class="box">
                                 <div class="box-header">
@@ -152,8 +130,6 @@
                                     <div id="all-time-chart"></div>
                                 </div>
                             </div>
-                            <!-- embed video -->
-
                             <div class="col-12 col-md-12 col-sm-12">
                                 <div class="last30box">
                                     <div class="box-header">
@@ -166,19 +142,9 @@
                                 </div>
                                 
                             </div>
-                        <!-- end embed video -->
-                        <!-- embed video -->
                         </div>
 
-                        <!-- end all time chart -->
-
-                        <!-- embed video -->
-                          
-                <!-- end left content -->
-
-                <!-- right content -->
                 <div class="col-4 col-md-12 col-sm-12">
-                    <!-- 30 days chart -->
                     <div class="box">
                         <div class="box-header">
                             last 30 days
@@ -187,9 +153,6 @@
                             <div id="days-chart"></div>
                         </div>
                     </div>
-                    <!-- end 30 days chart -->
-
-                    <!-- recovery rate chart -->
                     <div class="box">
                         <div class="box-header">
                             recovery rate
@@ -198,9 +161,6 @@
                             <div id="recover-rate-chart"></div>
                         </div>
                     </div>
-                    <!-- end recovery rate chart -->
-
-                    <!-- top country affected -->
                     <div class="box">
                         <div class="box-header">
                             top 10 countries affected
@@ -228,14 +188,10 @@
                             </table>
                         </div>
                     </div>
-                    <!-- end top country affected -->
                 </div>
-                <!-- end right content -->
             </div>
-            <!-- end tracking information -->
         </div>
     </div>
-    <!-- end main content -->
 
     <!-- footer -->
     <div class="footer">
@@ -244,8 +200,8 @@
     <!-- end footer -->
 
     <!-- loader -->
-    <div class="loader">
-        <i class="bx bxs-virus bx-spin"></i>
+    <div class="loader" id="loades">
+        <span>Fetching Data... <i class="fas fa-spinner"></i></span> 
     </div>
     <!-- end loader -->
 
